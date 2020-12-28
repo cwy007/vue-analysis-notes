@@ -1,0 +1,23 @@
+{
+  "name": "vue-analysis-notes",
+  "version": "1.0.0",
+  "description": "## 核心",
+  "main": ".eslintrc.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "dependencies": {
+    "flow": "^0.2.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-flow": "^7.12.1",
+    "flow-bin": "^0.141.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
