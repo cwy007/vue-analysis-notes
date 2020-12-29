@@ -56,4 +56,52 @@ Vue.js 的核心代码，包括内置组件、全局 API 封装，Vue 实例化�
 
 ## 源码构建
 
+通常一个基于 NPM 托管的项目都会有一个 package.json 文件，它是对项目的描述文件
+
+我们通常会配置 script 字段作为 NPM 的执行脚本
+
+环境参数
+
+process.argv[2]
+
+```json
+{
+  "script": {
+    "build": "node scripts/build.js",
+    "build:ssr": "npm run build -- web-runtime-cjs,web-server-renderer",
+    "build:weex": "npm run build -- weex"
+  }
+}
+```
+
+对于单个配置，它是遵循 Rollup 的构建规则的
+
+借助如 webpack 的 vue-loader 工具把 .vue 文件编译成 JavaScript
+
+Vue.js 的构建打包过程
+
+rollup 更轻量
+
+js 库构建
+
+一系列任务
+
+配置转换
+
+映射
+
+通过 npm 脚本，找到 vue 源码的编译打包的入口文件
+
 ## 从入口开始
+
+本质上就是一个用 Function 实现的 Class，然后它的原型 prototype 以及它本身都扩展了一系列的方法和属性
+
+那么 Vue 能做什么，它是怎么做的
+
+import Vue from 'vue'
+
+初始化过程
+
+原型方法
+
+静态方法

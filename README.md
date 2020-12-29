@@ -27,3 +27,7 @@
 
 * [ustbhuangyi.github.io/vue-analysis](https://ustbhuangyi.github.io/vue-analysis/)
 * [flow](https://flow.org/en/docs/)
+* [rollup](https://github.com/rollup/rollup)
+* [CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1)
+* [ES Module](http://exploringjs.com/es6/ch_modules.html)
+* [UMD](https://github.com/umdjs/umd)
