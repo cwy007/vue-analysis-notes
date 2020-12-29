@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@2.6"></script>
+</head>
+<body>
+    <div id="app">
+        <test>
+            <template v-slot:header>
+                <div>header</div>
+            </template>
+            <template v-slot:content>
+                <div>content</div>
+            </template>
+            <template v-slot:footer>
+                <div>footer</div>
+            </template>
+        </test>
+    </div>
+    <script>
+        Vue.component('test', {
+            template: `
+                <div>
+                    <slot name="header"></slot>
+                    <slot name="content"></slot>
+                    <slot name="footer"></slot>
+                </div>
+            `
+        })
+        var app = new Vue({
+            el: '#app'
+        });
+    </script>
+
+</body>
+</html>

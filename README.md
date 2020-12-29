@@ -31,3 +31,9 @@
 * [CommonJS](http://wiki.commonjs.org/wiki/Modules/1.1)
 * [ES Module](http://exploringjs.com/es6/ch_modules.html)
 * [UMD](https://github.com/umdjs/umd)
+* [runtimeCompiler: true](https://blog.csdn.net/xiaomajia029/article/details/88320233)
+  >[Vue warn]: You are using the runtime-only build of Vue where the template compiler is not available
+  > <https://cli.vuejs.org/zh/config/#runtimecompiler>
+* [Type annotations can only be used in TypeScript files.ts(8010)](https://www.cnblogs.com/semth/p/13358944.html)
+* [snabbdom](https://github.com/snabbdom/snabbdom)
+  >A virtual DOM library

@@ -1,8 +1,14 @@
 import Vue from 'vue'
-import App from './App.vue'
-
-Vue.config.productionTip = false
 
 new Vue({
-  render: h => h(App),
-}).$mount('#app')
+  el: '#app',
+  mounted() {
+    console.log(this.message);
+  },
+  data: {
+    message: 'Hello Vue! 123'
+  },
+  template: `
+    <h1>{{ message }}</h1>
+  `
+})
