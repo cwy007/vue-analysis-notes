@@ -100,3 +100,57 @@ let app = new Vue({
   render: h => h(childComp)
 })
 ```
+
+## lifecycle
+
+beforeCreate 的钩子函数中就不能获取到 props、data 中定义的值，也不能调用 methods 中定义的函数。
+
+Vue 生命周期中各个钩子函数的执行时机以及顺序
+
+* created 钩子函数中可以访问到数据，
+* 在 mounted 钩子函数中可以访问到 DOM，
+* 在 destroy 钩子函数中可以做一些定时器销毁工作
+
+## component register
+
+使用到组件库的时候，往往更通用基础组件都是全局注册的，而编写的特例场景的业务组件都是局部注册的
+
+## async component
+
+```js
+Vue.component('async-example', function (resolve, reject) {
+   // 这个特殊的 require 语法告诉 webpack
+   // 自动将编译后的代码分割成不同的块，
+   // 这些块将通过 Ajax 请求自动下载。
+   require(['./my-async-component'], function(res) {
+     resolve(res)
+   })
+})
+
+Vue.component(
+  'async-webpack-example',
+  // 该 `import` 函数返回一个 `Promise` 对象。
+  () => import('./my-async-component')
+)
+
+const AsyncComp = () => ({
+  // 需要加载的组件。应当是一个 Promise
+  component: import('./MyComp.vue'),
+  // 加载中应当渲染的组件
+  loading: LoadingComp,
+  // 出错时渲染的组件
+  error: ErrorComp,
+  // 渲染加载中组件前的等待时间。默认：200ms。
+  delay: 200,
+  // 最长等待时间。超出此时间则渲染错误组件。默认：Infinity
+  timeout: 3000
+})
+Vue.component('async-example', AsyncComp)
+
+```
+
+通过执行 $forceUpdate 可以强制组件重新渲染一次
+
+webpack 2+ 支持了异步加载的语法糖：() => import('./my-async-component')
+
+异步组件实现的本质是 2 次渲染，除了 0 delay 的高级异步组件第一次直接渲染成 loading 组件外，其它都是第一次渲染生成一个注释节点，当异步获取组件成功后，再通过 forceRender 强制重新渲染，这样就能正确渲染出我们异步加载的组件了
