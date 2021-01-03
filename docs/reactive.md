@@ -106,3 +106,47 @@ push
 unshift
 
 不要通过下标直接给数组中添加新的成员
+
+## computed and watch
+
+computed watcher
+
+setter 通常是计算属性是一个对象，并且拥有 set 方法的时候才有，否则是一个空函数。在平时的开发场景中，计算属性有 setter 的情况比较少
+
+```js
+var vm = new Vue({
+  data: {
+    firstName: 'Foo',
+    lastName: 'Bar'
+  },
+  computed: {
+    fullName: function () {
+      return this.firstName + ' ' + this.lastName
+    }
+  }
+})
+```
+
+[watcher 类型](https://ustbhuangyi.github.io/vue-analysis/v2/reactive/computed-watcher.html#watcher-options)
+this.deep = !!options.deep
+this.user = !!options.user
+this.lazy = !!options.lazy
+this.sync = !!options.sync
+this.before = options.before
+
+这样就可以收集到依赖，也就是订阅它们变化的 watcher
+
+计算属性本质上是 computed watcher，而侦听属性本质上是 user watcher。就应用场景而言，计算属性适合用在模板渲染中，某个值是依赖了其它的响应式对象甚至是计算属性计算而来；而侦听属性适用于观测某个值的变化去完成一段复杂的业务逻辑。
+
+数据规范化
+
+immediate
+
+deep watcher
+
+user watcher
+默认为异步
+
+sync 配置成同步
+
+触发回调执行，触发重新渲染
