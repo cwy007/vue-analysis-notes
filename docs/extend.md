@@ -35,3 +35,23 @@ vm._events 事件中心
 编译阶段的实现
 
 运行时阶段的实现
+
+## keep-alive
+
+了组件的缓存优化而使用 `<keep-alive>` 组件
+
+它有一个属性 abstract 为 true，是一个抽象组件，Vue 的文档没有提这个概念，实际上它在组件实例建立父子关系的时候会被忽略
+
+`<keep-alive>` 只处理第一个子元素，所以一般和它搭配使用的有 component 动态组件或者是 router-view，这点要牢记。
+
+首次渲染和缓存渲染
+
+## transition
+
+所以真正执行动画的是我们写的 CSS 或者是 JavaScript 钩子函数，而 Vue 的 `<transition>` 只是帮我们很好地管理了这些 CSS 的添加/删除，以及钩子函数的执行时机。
+
+appear 首次渲染时也有过渡效果
+
+所以真正执行动画的是我们写的 CSS 或者是 JavaScript 钩子函数，而 Vue 的 `<transition>` 只是帮我们很好地管理了这些 CSS 的添加/删除，以及钩子函数的执行时机。
+
+## transition-group
